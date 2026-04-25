@@ -10,7 +10,9 @@ const path = require("path");
 const process = require("process");
 require("dotenv").config();
 
-
+const authRouter = require("./routes/auth.route");
+const log = require("./middleware/log");
+const fileRouter = require("./routes/file.route");
 
 const app = express();
 connectDB();
@@ -36,7 +38,8 @@ if (process.env.NODE_ENV !== "production") {
 app.use("/api/v1/storage/uploads", express.static(path.join(process.cwd(), "storage", "uploads")));
 
 // ROUTES
-
+app.use("/api/v1/auth", authRouter);
+app.use("/api/v1/file", fileRouter);
 
 // DEFAULT ROUTE
 app.use((req, res, next) => {
