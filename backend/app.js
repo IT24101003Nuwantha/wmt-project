@@ -11,6 +11,8 @@ const process = require("process");
 require("dotenv").config();
 
 const authRouter = require("./routes/auth.route");
+const serviceRouter = require("./routes/service.route");
+const packageRouter = require("./routes/package.route");
 const log = require("./middleware/log");
 const fileRouter = require("./routes/file.route");
 
@@ -40,6 +42,8 @@ app.use("/api/v1/storage/uploads", express.static(path.join(process.cwd(), "stor
 // ROUTES
 app.use("/api/v1/auth", authRouter);
 app.use("/api/v1/file", fileRouter);
+app.use("/api/v1/service", serviceRouter);
+app.use("/api/v1/package", packageRouter);
 
 // DEFAULT ROUTE
 app.use((req, res, next) => {
