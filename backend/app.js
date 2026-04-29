@@ -13,6 +13,7 @@ require("dotenv").config();
 const authRouter = require("./routes/auth.route");
 const serviceRouter = require("./routes/service.route");
 const packageRouter = require("./routes/package.route");
+const invoiceRouter = require("./routes/invoice.route");
 const log = require("./middleware/log");
 const fileRouter = require("./routes/file.route");
 
@@ -44,6 +45,7 @@ app.use("/api/v1/auth", authRouter);
 app.use("/api/v1/file", fileRouter);
 app.use("/api/v1/service", serviceRouter);
 app.use("/api/v1/package", packageRouter);
+app.use("/api/v1/invoice", invoiceRouter);
 
 // DEFAULT ROUTE
 app.use((req, res, next) => {
