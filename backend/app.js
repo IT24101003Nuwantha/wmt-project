@@ -14,6 +14,9 @@ const authRouter = require("./routes/auth.route");
 const serviceRouter = require("./routes/service.route");
 const packageRouter = require("./routes/package.route");
 const invoiceRouter = require("./routes/invoice.route");
+const employeeRouter = require("./routes/employee.route");
+const teamRouter = require("./routes/team.route");
+const jobCardRoutes = require("./routes/jobCard.route");
 const log = require("./middleware/log");
 const fileRouter = require("./routes/file.route");
 
@@ -46,6 +49,9 @@ app.use("/api/v1/file", fileRouter);
 app.use("/api/v1/service", serviceRouter);
 app.use("/api/v1/package", packageRouter);
 app.use("/api/v1/invoice", invoiceRouter);
+app.use("/api/v1/employees", employeeRouter);
+app.use("/api/v1/teams", teamRouter);
+app.use("/api/v1/job-cards", jobCardRoutes);
 
 // DEFAULT ROUTE
 app.use((req, res, next) => {
