@@ -17,6 +17,10 @@ const invoiceRouter = require("./routes/invoice.route");
 const log = require("./middleware/log");
 const fileRouter = require("./routes/file.route");
 const timeslotRouter = require("./routes/timeslot.route");
+const inventoryRouter = require("./routes/inventory.route");
+const categoryRouter = require("./routes/category.route");
+const inventoryAnalysisRouter = require("./routes/inventoryAnalysis.route");
+const inventoryLogsRouter = require("./routes/inventoryLogs.route");
 
 const app = express();
 connectDB();
@@ -47,6 +51,10 @@ app.use("/api/v1/file", fileRouter);
 app.use("/api/v1/service", serviceRouter);
 app.use("/api/v1/package", packageRouter);
 app.use("/api/v1/invoice", invoiceRouter);
+app.use("/api/v1/inventory", inventoryRouter);
+app.use("/api/v1/categories", categoryRouter);
+app.use("/api/v1/inventory-analysis", inventoryAnalysisRouter);
+app.use("/api/v1/inventory-logs", inventoryLogsRouter);
 
 // DEFAULT ROUTE
 app.use((req, res, next) => {
