@@ -16,6 +16,7 @@ const packageRouter = require("./routes/package.route");
 const invoiceRouter = require("./routes/invoice.route");
 const log = require("./middleware/log");
 const fileRouter = require("./routes/file.route");
+const timeslotRouter = require("./routes/timeslot.route");
 
 const app = express();
 connectDB();
